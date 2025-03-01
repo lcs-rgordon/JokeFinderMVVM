@@ -18,23 +18,6 @@ class JokeViewModel {
     // Holds a list of saved jokes
     var savedJokes: [Joke] = []
     
-    // MARK: Computed properties
-    var currentJokeIsSaved: Bool {
-        if let currentJoke = self.currentJoke {
-            
-            if savedJokes.contains(where: { joke in
-                joke.id == currentJoke.id
-            }) == false {
-                return false
-            } else {
-                return true
-            }
-        } else {
-            return false
-        }
-        
-    }
-    
     // MARK: Initializer(s)
     init() {
         Task {
@@ -102,13 +85,8 @@ class JokeViewModel {
     // Add the current joke to the list of favourites
     func saveJoke() {
         if let currentJoke = self.currentJoke {
-            if savedJokes.contains(where: { joke in
-                joke.id == currentJoke.id
-            }) == false {
-                savedJokes.insert(currentJoke, at: 0)
-            }
+            savedJokes.insert(currentJoke, at: 0)            
         }
-        print(self.savedJokes.count)
     }
     
 }
