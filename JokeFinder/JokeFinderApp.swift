@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct JokeFinderApp: App {
+    
+    // MARK: Stored properties
+    @State var viewModel = JokeViewModel()
+    
+    // MARK: Computed properties
     var body: some Scene {
         WindowGroup {
             LandingView()
+                .environment(viewModel)
         }
     }
 }

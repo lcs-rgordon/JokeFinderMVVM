@@ -26,7 +26,18 @@ struct LandingView: View {
 
                 }
                 .tag(1)
-            
+
+            FavouriteJokesView()
+                .tabItem {
+                    Label {
+                        Text("Favourites")
+                    } icon: {
+                        Image(systemName: "heart.fill")
+                    }
+
+                }
+                .tag(2)
+
             
         }
     }
@@ -34,4 +45,5 @@ struct LandingView: View {
 
 #Preview {
     LandingView()
+        .environment(JokeViewModel())
 }

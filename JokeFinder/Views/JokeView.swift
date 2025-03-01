@@ -11,8 +11,8 @@ struct JokeView: View {
     
     // MARK: Stored properties
     
-    // Create the view model
-    @State var viewModel = JokeViewModel()
+    // Access the view model
+    @Environment(JokeViewModel.self) var viewModel
     
     // Controls punchline visibility
     @State var punchlineOpacity = 0.0
@@ -116,4 +116,5 @@ struct JokeView: View {
 
 #Preview {
     JokeView()
+        .environment(JokeViewModel())
 }
