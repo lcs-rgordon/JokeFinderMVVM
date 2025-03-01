@@ -74,6 +74,16 @@ struct JokeView: View {
                 }
 
             }
+
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    viewModel.currentJoke?.isFavourite.toggle()
+                } label: {
+                    Image(systemName: viewModel.currentJoke?.isFavourite ?? false ? "star.fill" : "star")
+                }
+
+            }
+
         }
         .padding()
         .navigationTitle("Random Jokes")
