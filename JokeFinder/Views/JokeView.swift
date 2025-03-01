@@ -77,9 +77,9 @@ struct JokeView: View {
 
             ToolbarItem(placement: .primaryAction) {
                 Button {
-                    viewModel.currentJoke?.isFavourite.toggle()
+                    viewModel.saveJoke()
                 } label: {
-                    Image(systemName: viewModel.currentJoke?.isFavourite ?? false ? "star.fill" : "star")
+                    Image(systemName: viewModel.currentJokeIsSaved ? "star.fill" : "star")
                 }
 
             }
