@@ -11,7 +11,9 @@ import SwiftUI
 struct JokeFinderApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                JokeView()
+            }
         }
     }
 }

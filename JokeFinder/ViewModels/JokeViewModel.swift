@@ -18,6 +18,13 @@ class JokeViewModel {
     // Holds a list of saved jokes
     var savedJokes: [Joke] = []
     
+    // MARK: Initializer(s)
+    init() {
+        Task {
+            await self.fetchJoke()
+        }
+    }
+    
     // MARK: Function(s)
     
     // This loads a new joke from the endpoint
