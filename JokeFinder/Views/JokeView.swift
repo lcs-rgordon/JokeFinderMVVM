@@ -57,7 +57,8 @@ struct JokeView: View {
             
         }
         .padding()
-        .navigationTitle("Random Jokes")    }
+        .navigationTitle("Random Jokes")
+    }
 }
 
 #Preview {
