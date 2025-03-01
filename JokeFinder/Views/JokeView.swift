@@ -76,6 +76,9 @@ struct JokeView: View {
                                     viewModel.saveJoke()
                                 }
                                 
+                                // Clear the old joke
+                                viewModel.clearJoke()
+                                
                                 // Now get a new joke
                                 Task {
                                     await viewModel.fetchJoke()

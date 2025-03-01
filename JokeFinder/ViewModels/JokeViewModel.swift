@@ -37,9 +37,6 @@ class JokeViewModel {
     // won't "freeze up" while this function does it's job.
     func fetchJoke() async {
         
-        // Clear current joke
-        self.currentJoke = nil
-        
         // 1. Attempt to create a URL from the address provided
         let endpoint = "https://official-joke-api.appspot.com/random_joke"
         guard let url = URL(string: endpoint) else {
@@ -84,9 +81,19 @@ class JokeViewModel {
     
     // Add the current joke to the list of favourites
     func saveJoke() {
+        
+        // Save current joke
         if let currentJoke = self.currentJoke {
             savedJokes.insert(currentJoke, at: 0)            
         }
+
+    }
+    
+    // Clear the current joke
+    func clearJoke() {
+
+        self.currentJoke = nil
+
     }
     
 }
