@@ -14,6 +14,7 @@
 		811ADCC62D737BA3004A317C /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811ADCC52D737BA3004A317C /* URLSession.swift */; };
 		811ADCC82D737BC5004A317C /* Joke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811ADCC72D737BC5004A317C /* Joke.swift */; };
 		811ADCCA2D737BDA004A317C /* JokeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 811ADCC92D737BDA004A317C /* JokeViewModel.swift */; };
+		81C5A4482D73A44000186E4F /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81C5A4472D73A44000186E4F /* LandingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		811ADCC52D737BA3004A317C /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		811ADCC72D737BC5004A317C /* Joke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joke.swift; sourceTree = "<group>"; };
 		811ADCC92D737BDA004A317C /* JokeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JokeViewModel.swift; sourceTree = "<group>"; };
+		81C5A4472D73A44000186E4F /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				811ADCB92D737B5F004A317C /* JokeView.swift */,
+				81C5A4472D73A44000186E4F /* LandingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81C5A4482D73A44000186E4F /* LandingView.swift in Sources */,
 				811ADCCA2D737BDA004A317C /* JokeViewModel.swift in Sources */,
 				811ADCBC2D737B5F004A317C /* JokeView.swift in Sources */,
 				811ADCC62D737BA3004A317C /* URLSession.swift in Sources */,
