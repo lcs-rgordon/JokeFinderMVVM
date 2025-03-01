@@ -52,9 +52,28 @@ struct JokeView: View {
             } else {
                 
                 ProgressView()
+                    .padding(.top)
+                
+                Spacer()
                 
             }
             
+        }
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button {
+                    Task {
+                        // Reset existing joke
+                        withAnimation {
+                            punchlineOpacity = 0.0
+                        }
+                        await viewModel.fetchJoke()
+                    }
+                } label: {
+                    Image(systemName: "arrow.circlepath")
+                }
+
+            }
         }
         .padding()
         .navigationTitle("Random Jokes")
