@@ -28,6 +28,17 @@ struct FavouriteJokesView: View {
                             Text(currentJoke.punchline ?? "")
                                 .italic()
                         }
+                        .swipeActions {
+                            ShareLink(
+                                "Share",
+                                item: "\(currentJoke.setup ?? "")\n\n\(currentJoke.punchline ?? "")",
+                                preview: SharePreview(
+                                    "Share Joke",
+                                    image: Image("ShareJokeImage")
+                                )
+                            )
+
+                        }
                     }
                     .listStyle(.plain)
                 }
