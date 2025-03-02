@@ -5,6 +5,7 @@
 //  Created by Russell Gordon on 2025-03-01.
 //
 
+import SwiftUIIntrospect
 import SwiftUI
 
 struct LandingView: View {
@@ -40,19 +41,11 @@ struct LandingView: View {
             
             
         }
-        .onAppear {
-            let appearance = UITabBarAppearance()
-            appearance.configureWithOpaqueBackground()
-            appearance.backgroundColor = UIColor(Color.tabBar)
-            appearance.stackedLayoutAppearance.normal.iconColor = .gray
-            appearance.stackedLayoutAppearance.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.gray]
-            
-            appearance.stackedLayoutAppearance.selected.iconColor = UIColor(Color.accentColor)
-            appearance.stackedLayoutAppearance.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(Color.accentColor)]
-            
-            UITabBar.appearance().standardAppearance = appearance
-            UITabBar.appearance().scrollEdgeAppearance = appearance
-        }
+        .introspect(.tabView, on: .iOS(.v17, .v18), customize: { controller in
+            let bar = UITabBarAppearance()
+            bar.configureWithOpaqueBackground()
+            controller.tabBar.scrollEdgeAppearance = bar
+        })
     }
 }
 
