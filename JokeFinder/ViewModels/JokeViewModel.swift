@@ -43,7 +43,7 @@ class JokeViewModel {
         // 1. Attempt to create a URL from the address provided
         let endpoint = "https://official-joke-api.appspot.com/random_joke"
         guard let url = URL(string: endpoint) else {
-            debugPrint("Invalid address for JSON endpoint.")
+            print("Invalid address for JSON endpoint.")
             return
         }
         
@@ -76,7 +76,7 @@ class JokeViewModel {
             print("----")
             
             // Show the detailed error to help with debugging
-            debugPrint(error)
+            print(error)
             
         }
         
