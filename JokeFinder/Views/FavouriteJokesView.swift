@@ -15,7 +15,10 @@ struct FavouriteJokesView: View {
     // MARK: Computed properties
     var body: some View {
         NavigationStack {
-            Group {
+            ZStack {
+                Color.favouriteJokes
+                    .ignoresSafeArea()
+                
                 if viewModel.savedJokes.isEmpty {
                     ContentUnavailableView("No favourite jokes", systemImage: "heart.slash", description: Text("See if a new joke might tickle your funny bone!"))
                 } else {
@@ -26,6 +29,7 @@ struct FavouriteJokesView: View {
                                 .italic()
                         }
                     }
+                    .listStyle(.plain)
                 }
             }
             .navigationTitle("Favourites")
