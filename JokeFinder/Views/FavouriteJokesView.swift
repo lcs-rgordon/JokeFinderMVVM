@@ -15,14 +15,21 @@ struct FavouriteJokesView: View {
     // MARK: Computed properties
     var body: some View {
         NavigationStack {
-            List(viewModel.savedJokes) { currentJoke in
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(currentJoke.setup ?? "")
-                    Text(currentJoke.punchline ?? "")
-                        .italic()
+            Group {
+                if viewModel.savedJokes.isEmpty {
+                    ContentUnavailableView("No favourite jokes", systemImage: "heart.slash", description: Text("See if a new joke might tickle your funny bone!"))
+                } else {
+                    List(viewModel.savedJokes) { currentJoke in
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(currentJoke.setup ?? "")
+                            Text(currentJoke.punchline ?? "")
+                                .italic()
+                        }
+                    }
                 }
             }
             .navigationTitle("Favourites")
+            
         }
     }
 }
