@@ -95,6 +95,18 @@ class JokeViewModel {
 
     }
     
+    // Delete a joke from the list of favourites
+    func delete(_ jokeToDelete: Joke) {
+        
+        // Remove the provided joke from the list of saved favourites
+        favouriteJokes.removeAll { currentJoke in
+            currentJoke.id == jokeToDelete.id
+        }
+        
+        // Write the updated list of jokes to the JSON file stored on device
+        self.persistFavouriteJokes()
+    }
+    
     // Clear the current joke
     func clearJoke() {
 

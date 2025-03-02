@@ -29,6 +29,13 @@ struct FavouriteJokesView: View {
                                 .italic()
                         }
                         .swipeActions {
+                            
+                            // Delete
+                            Button("Delete", role: .destructive) {
+                                viewModel.delete(currentJoke)
+                            }
+                            
+                            // Share
                             ShareLink(
                                 "Share",
                                 item: "\(currentJoke.setup ?? "")\n\n\(currentJoke.punchline ?? "")",
