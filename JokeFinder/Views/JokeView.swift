@@ -40,6 +40,8 @@ struct JokeView: View {
                                 withAnimation {
                                     punchlineOpacity = 1.0
                                 }
+                                // Stop the timer
+                                timer.upstream.connect().cancel()
                             }
                         
                         Text(currentJoke.punchline ?? "")
