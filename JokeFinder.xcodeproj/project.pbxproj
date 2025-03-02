@@ -93,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				811ADCC72D737BC5004A317C /* Joke.swift */,
+				81C5A44B2D74B34200186E4F /* FavouriteJoke.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -100,7 +101,6 @@
 		811ADCC32D737B74004A317C /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				81C5A44B2D74B34200186E4F /* FavouriteJoke.swift */,
 				811ADCC92D737BDA004A317C /* JokeViewModel.swift */,
 			);
 			path = ViewModels;

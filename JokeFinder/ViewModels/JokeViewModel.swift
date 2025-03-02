@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import SwiftData
 
 @Observable
 class JokeViewModel {
     
     // MARK: Stored properties
+    
+    // Model context for SwiftData
+    var modelContext: ModelContext
     
     // Whatever joke has most recently been downloaded
     var currentJoke: Joke? = nil
@@ -19,10 +23,19 @@ class JokeViewModel {
     var favouriteJokes: [FavouriteJoke] = []
     
     // MARK: Initializer(s)
-    init() {
+    init(modelContext: ModelContext) {
+        
+        // Set the model context to use with SwiftData
+        self.modelContext = modelContext
+        
+        // Fetch a new joke from the remote endpoint
         Task {
             await self.fetchJoke()
         }
+        
+        // Get any existing favourite jokes from the database
+        self.fetchAllFavouriteJokes()
+        
     }
     
     // MARK: Function(s)
@@ -84,15 +97,27 @@ class JokeViewModel {
         
         // Save current joke
         if let currentJoke = self.currentJoke {
-            favouriteJokes.insert(
-                FavouriteJoke(
-                    setup: currentJoke.setup ?? "",
-                    punchline: currentJoke.punchline ?? ""
-                ),
-                at: 0
-            )            
-        }
+            
+            let newFavouriteJoke = FavouriteJoke(
+                setup: currentJoke.setup ?? "",
+                punchline: currentJoke.punchline ?? ""
+            )
+            
+            modelContext.insert(newFavouriteJoke)
+            fetchAllFavouriteJokes()
 
+        }
+        
+
+    }
+    
+    // Get all jokes from the database
+    func fetchAllFavouriteJokes() {
+        do {
+            self.favouriteJokes = try modelContext.fetch(FetchDescriptor<FavouriteJoke>(sortBy: [SortDescriptor(\.savedAt, order: .reverse)]))
+        } catch {
+            print("Unable to fetch all jokes from the database.")
+        }
     }
     
     // Clear the current joke

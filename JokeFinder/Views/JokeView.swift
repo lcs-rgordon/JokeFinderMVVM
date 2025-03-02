@@ -125,7 +125,7 @@ struct JokeView: View {
     }
 }
 
-#Preview {
-    JokeView()
-        .environment(JokeViewModel())
-}
+//#Preview {
+//    JokeView()
+//        .environment(JokeViewModel())
+//}

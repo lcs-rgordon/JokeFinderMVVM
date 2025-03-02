@@ -49,7 +49,7 @@ struct FavouriteJokesView: View {
     }
 }
 
-#Preview {
-    FavouriteJokesView()
-        .environment(JokeViewModel())
-}
+//#Preview {
+//    FavouriteJokesView()
+//        .environment(JokeViewModel())
+//}
