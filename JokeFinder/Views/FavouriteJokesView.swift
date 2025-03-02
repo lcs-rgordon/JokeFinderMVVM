@@ -19,19 +19,19 @@ struct FavouriteJokesView: View {
                 Color.favouriteJokes
                     .ignoresSafeArea()
                 
-                if viewModel.savedJokes.isEmpty {
+                if viewModel.favouriteJokes.isEmpty {
                     ContentUnavailableView("No favourite jokes", systemImage: "heart.slash", description: Text("See if a new joke might tickle your funny bone!"))
                 } else {
-                    List(viewModel.savedJokes) { currentJoke in
+                    List(viewModel.favouriteJokes) { joke in
                         VStack(alignment: .leading, spacing: 5) {
-                            Text(currentJoke.setup ?? "")
-                            Text(currentJoke.punchline ?? "")
+                            Text(joke.setup)
+                            Text(joke.punchline)
                                 .italic()
                         }
                         .swipeActions {
                             ShareLink(
                                 "Share",
-                                item: "\(currentJoke.setup ?? "")\n\n\(currentJoke.punchline ?? "")",
+                                item: "\(joke.setup)\n\n\(joke.punchline)",
                                 preview: SharePreview(
                                     "Share Joke",
                                     image: Image("ShareJokeImage")

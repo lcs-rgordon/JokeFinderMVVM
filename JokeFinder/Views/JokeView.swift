@@ -93,7 +93,7 @@ struct JokeView: View {
                                         // Now get a new joke
                                         Task {
                                             await viewModel.fetchJoke()
-                                            print(viewModel.savedJokes.count)
+                                            print(viewModel.favouriteJokes.count)
                                         }
                                         dragOffset = .zero
                                         punchlineOpacity = 0

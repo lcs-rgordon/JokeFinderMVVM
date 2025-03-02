@@ -16,3 +16,5 @@ struct Joke: Identifiable, Codable {
     let id: Int
         
 }
+
+

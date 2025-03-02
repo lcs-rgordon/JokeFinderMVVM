@@ -16,7 +16,7 @@ class JokeViewModel {
     var currentJoke: Joke? = nil
     
     // Holds a list of saved jokes
-    var savedJokes: [Joke] = []
+    var favouriteJokes: [FavouriteJoke] = []
     
     // MARK: Initializer(s)
     init() {
@@ -84,7 +84,13 @@ class JokeViewModel {
         
         // Save current joke
         if let currentJoke = self.currentJoke {
-            savedJokes.insert(currentJoke, at: 0)            
+            favouriteJokes.insert(
+                FavouriteJoke(
+                    setup: currentJoke.setup ?? "",
+                    punchline: currentJoke.punchline ?? ""
+                ),
+                at: 0
+            )            
         }
 
     }
